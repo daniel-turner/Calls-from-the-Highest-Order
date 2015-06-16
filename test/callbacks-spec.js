@@ -6,7 +6,7 @@ var callbacks = require('../lib/callbacks');
 describe('Callbacks', function() {
 
   describe('wait', function() {
-    
+
     it('should wait `n` seconds to invoke the callback function', function(done) {
       this.timeout(2000);
       var start = Date.now();
@@ -19,7 +19,7 @@ describe('Callbacks', function() {
   });
 
   describe('repeat', function() {
-    
+
     var count = 0;
     beforeEach(function(done){
       this.timeout(1000);
@@ -35,7 +35,7 @@ describe('Callbacks', function() {
   });
 
   describe('User', function() {
-    
+
     it('should find by id', function(done) {
       callbacks.User.find({ id : 2 }, function(err, users){
         chai.expect(err).to.be.null;
