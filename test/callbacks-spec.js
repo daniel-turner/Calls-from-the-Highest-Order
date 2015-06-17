@@ -72,6 +72,9 @@ describe('Callbacks', function() {
     });
     it('should return a TypeError when a query value and the schema value have mismatched types', function(done) {
       callbacks.User.find({ id : "two" }, function(err, users){
+
+        console.log(err);
+        console.log(users);
         err.should.not.be.null;
         err.constructor.name.should.be.equal('TypeError');
         users.should.have.length.of(0);
