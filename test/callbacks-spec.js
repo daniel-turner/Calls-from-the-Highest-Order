@@ -36,51 +36,51 @@ describe('Callbacks', function() {
 
   describe('User', function() {
 
-    it('should find by id', function(done) {
-      callbacks.User.find({ id : 2 }, function(err, users){
-        chai.expect(err).to.be.null;
-        users.should.have.length.of(1);
-        users[0].name.should.equal('goldstine');
-        done();
-      });
-    });
+    // it('should find by id', function(done) {
+    //   callbacks.User.find({ id : 2 }, function(err, users){
+    //     chai.expect(err).to.be.null;
+    //     users.should.have.length.of(1);
+    //     users[0].name.should.equal('goldstine');
+    //     done();
+    //   });
+    // });
     it('should return a RangeError when query has fields that User does not have', function(done) {
       callbacks.User.find({ happy : true, iKnowIt : true }, function(err, users){
         err.should.not.be.null;
         err.constructor.name.should.be.equal('RangeError');
         users.should.have.length.of(0);
-        done();
-      });
-    });
-    it('should find by multiple parameters', function(done) {
-      callbacks.User.find({ id : 4, name : 'davinci' }, function(err, users){
-        chai.expect(err).to.be.null;
-        users.should.have.length.of(1);
-        users[0].mood.should.equal('elated');
-        done();
-      });
-    });
-    it('should return all users that match the query', function(done) {
-      callbacks.User.find({ mood : "elated" }, function(err, users){
-        chai.expect(err).to.be.null;
-        users.should.have.length.of(3);
-        users[0].name.should.equal('curie');
-        users[1].name.should.equal('davinci');
-        users[2].name.should.equal('mccarthy');
-        done();
-      });
-    });
-    it('should return a TypeError when a query value and the schema value have mismatched types', function(done) {
-      callbacks.User.find({ id : "two" }, function(err, users){
 
-        console.log(err);
-        console.log(users);
-        err.should.not.be.null;
-        err.constructor.name.should.be.equal('TypeError');
-        users.should.have.length.of(0);
+        console.log("HIT");
         done();
       });
     });
+    // it('should find by multiple parameters', function(done) {
+    //   callbacks.User.find({ id : 4, name : 'davinci' }, function(err, users){
+    //     chai.expect(err).to.be.null;
+    //     users.should.have.length.of(1);
+    //     users[0].mood.should.equal('elated');
+    //     done();
+    //   });
+    // });
+    // it('should return all users that match the query', function(done) {
+    //   callbacks.User.find({ mood : "elated" }, function(err, users){
+    //     chai.expect(err).to.be.null;
+    //     users.should.have.length.of(3);
+    //     users[0].name.should.equal('curie');
+    //     users[1].name.should.equal('davinci');
+    //     users[2].name.should.equal('mccarthy');
+    //     done();
+    //   });
+    // });
+    // it('should return a TypeError when a query value and the schema value have mismatched types', function(done) {
+    //   callbacks.User.find({ id : "two" }, function(err, users){
+
+    //     err.should.not.be.null;
+    //     err.constructor.name.should.be.equal('TypeError');
+    //     users.should.have.length.of(0);
+    //     done();
+    //   });
+    // });
   });
 
 });
